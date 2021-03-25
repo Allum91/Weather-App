@@ -18,10 +18,23 @@ const updateUI = (response) => {
       <span>&deg;C</span>
     </div>
     `;
+
+    //update the night/ day & icon images
+    const iconSrc = `img/icons/${weather.WeatherIcon}.svg`;
+    icon.setAttribute('src', iconSrc);
+    
+    let timeSrc = null;
+    if(weather.IsDayTime){
+      timeSrc = 'img/day.svg';
+    } else {
+      timeSrc = 'img/night.svg';
+    }
+    time.setAttribute('src', timeSrc);
     //remove the class of d-none if present
     if(card.classList.contains('d-none')){
       card.classList.remove('d-none');
     }
+   
 };
 
 const updateCity = async (city) => {
